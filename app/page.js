@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import BlogSection from './components/BlogSection';
 import { AnimatedTitle, AnimatedText, TypewriterText } from './components/AnimatedText';
 import { useToast } from './components/Toast';
+import Image from 'next/image';
 
 // Project data
 const projects = [
@@ -224,14 +225,13 @@ export default function Home() {
                 className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="aspect-video bg-gray-100 dark:bg-gray-700">
-                  {project.image && (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
+                <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 
                 <div className="p-6 md:p-8">

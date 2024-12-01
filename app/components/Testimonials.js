@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -24,7 +25,7 @@ const testimonials = [
     name: 'Emily Rodriguez',
     role: 'Product Manager',
     image: '/testimonials/emily.jpg',
-    content: "Crispus's ability to understand complex requirements and translate them into elegant solutions is remarkable. A true professional.",
+    content: 'Crispus&apos;s ability to understand complex requirements and translate them into elegant solutions is remarkable. A true professional.',
     company: 'DigitalCraft'
   }
 ];
@@ -48,7 +49,6 @@ export default function Testimonials() {
         </h2>
 
         <div className="max-w-4xl mx-auto">
-          {/* Testimonial Carousel */}
           <div className="relative">
             <div className="overflow-hidden">
               <div
@@ -64,12 +64,13 @@ export default function Testimonials() {
                   >
                     <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
                           {testimonial.image ? (
-                            <img
+                            <Image
                               src={testimonial.image}
                               alt={testimonial.name}
-                              className="w-full h-full object-cover"
+                              fill
+                              className="object-cover"
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-gray-400">
@@ -85,7 +86,7 @@ export default function Testimonials() {
                         </div>
                       </div>
                       <blockquote className="text-gray-600 dark:text-gray-300 italic">
-                        "{testimonial.content}"
+                        &ldquo;{testimonial.content}&rdquo;
                       </blockquote>
                     </div>
                   </div>
@@ -93,7 +94,6 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Navigation Dots */}
             <div className="flex justify-center mt-8 gap-2">
               {testimonials.map((_, index) => (
                 <button
@@ -108,53 +108,6 @@ export default function Testimonials() {
                 />
               ))}
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={() =>
-                setActiveIndex(
-                  (current) =>
-                    (current - 1 + testimonials.length) % testimonials.length
-                )
-              }
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label="Previous testimonial"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={() =>
-                setActiveIndex((current) => (current + 1) % testimonials.length)
-              }
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label="Next testimonial"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

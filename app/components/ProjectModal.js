@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ProjectModal({ project, onClose }) {
   const modalRef = useRef();
@@ -52,14 +54,13 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Project Image */}
-          <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg mb-6">
-            {project.image && (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            )}
+          <div className="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden relative">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Project Details */}
