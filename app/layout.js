@@ -12,12 +12,29 @@ export const metadata = {
   title: 'Crispus Osano - Full Stack Developer',
   description: 'Full Stack Developer specializing in modern web applications. Expert in React, Node.js, and cloud architecture.',
   keywords: 'full stack developer, web development, react, node.js, portfolio',
+  metadataBase: new URL('https://crisportfolio.vercel.app'),
   openGraph: {
     title: 'Crispus Osano - Full Stack Developer',
     description: 'Full Stack Developer specializing in modern web applications',
     type: 'website',
     locale: 'en_US',
+    url: 'https://crisportfolio.vercel.app',
+    siteName: 'Crispus Osano Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Crispus Osano - Full Stack Developer'
+      }
+    ]
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crispus Osano - Full Stack Developer',
+    description: 'Full Stack Developer specializing in modern web applications',
+    images: ['/og-image.png']
+  }
 }
 
 export default function RootLayout({ children }) {
